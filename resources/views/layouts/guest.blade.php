@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.app')
+
+@section('content')
+
 <head>
     <meta charset="UTF-8">
     <title>ByeBill</title>
@@ -7,7 +9,7 @@
 </head>
 <body class="bg-light">
 
-    @include('components.guest-navbar')
+    @include('layouts.navbar.nav-guest')
 
     <main class="container mt-5">
         @yield('content')
@@ -15,3 +17,5 @@
 
 </body>
 </html>
+
+@endsection

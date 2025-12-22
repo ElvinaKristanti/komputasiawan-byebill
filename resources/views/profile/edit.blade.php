@@ -1,29 +1,38 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+@section('content')
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="text-center mb-4">
+                <h3 class="fw-bold text-pink">👤 Profil Akun</h3>
+                <p class="text-muted">Kelola informasi akun ByeBill Anda</p>
+            </div>
+
+            {{-- PROFILE --}}
+            <div class="card mb-4 shadow-sm border-0" style="background:#fff0f6">
+                <div class="card-body">
                     @include('profile.partials.update-profile-information-form')
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+            {{-- PASSWORD --}}
+            <div class="card mb-4 shadow-sm border-0" style="background:#fff0f6">
+                <div class="card-body">
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+            {{-- DELETE --}}
+            <div class="card shadow-sm border-danger">
+                <div class="card-body">
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
+
         </div>
     </div>
-</x-app-layout>
+</div>
+@endsection
+    

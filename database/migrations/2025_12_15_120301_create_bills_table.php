@@ -10,11 +10,12 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('bill_name');
-            $table->decimal('amount', 12, 2);
+            $table->integer('amount');
             $table->date('due_date');
-            $table->enum('status', ['unpaid','paid'])->default('unpaid');
+            $table->enum('status', ['Belum Dibayar', 'Sudah Dibayar'])->default('Belum Dibayar');
             $table->timestamps();
         });
+
     }
 
     public function down(): void {

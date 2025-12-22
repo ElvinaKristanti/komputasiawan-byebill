@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone,'
     ];
 
     /**
@@ -43,7 +44,16 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function isPremium()
+    {
+        return $this->is_premium == 1;
+    }
+
+
+
     public function bills() {
         return $this->hasMany(Bill::class);
     }
+
+
 }

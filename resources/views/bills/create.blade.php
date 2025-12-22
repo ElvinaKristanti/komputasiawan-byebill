@@ -1,40 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4" style="max-width: 600px">
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm border-0" style="background:#fff0f6">
+            <div class="card-body p-4">
+                <h4 class="fw-bold text-pink mb-4">➕ Tambah Tagihan</h4>
 
-    <h3 class="mb-3">Tambah Tagihan</h3>
+                <form method="POST" action="{{ route('bills.store') }}">
+                    @csrf
 
-    <div class="card shadow-sm">
-        <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Nama Tagihan</label>
+                        <input type="text" name="bill_name" class="form-control rounded-pill">
+                    </div>
 
-            <form>
-                <div class="mb-3">
-                    <label class="form-label">Nama Tagihan</label>
-                    <input type="text" class="form-control" placeholder="Contoh: Listrik">
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jumlah (Rp)</label>
+                        <input type="number" name="amount" class="form-control rounded-pill">
+                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Nominal</label>
-                    <input type="number" class="form-control" placeholder="500000">
-                </div>
+                    <div class="mb-4">
+                        <label class="form-label">Tanggal Jatuh Tempo</label>
+                        <input type="date" name="due_date" class="form-control rounded-pill">
+                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Jatuh Tempo</label>
-                    <input type="date" class="form-control">
-                </div>
-
-                <button class="btn btn-primary w-100">
-                    Simpan Tagihan
-                </button>
-            </form>
-
-            <a href="{{ route('dashboard') }}" class="btn btn-secondary w-100 mt-2">
-                Batal
-            </a>
-
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ route('dashboard') }}" class="btn btn-light rounded-pill me-2">
+                            Batal
+                        </a>
+                        <button class="btn btn-pink rounded-pill">
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-
 </div>
 @endsection
