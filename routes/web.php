@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UpgradeController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUserController;
-
+use App\Http\Controllers\GoogleController;
 /*
 |--------------------------------------------------------------------------|
 | GUEST
@@ -35,7 +35,10 @@ Route::get('/bantuan', [BillController::class, 'bantuan'])->name('bantuan');
 |--------------------------------------------------------------------------|
 */
 
-
+Route::controller(GoogleController::class)->group(function(){
+    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
+});
 
 Route::middleware('auth')->group(function () {
 
