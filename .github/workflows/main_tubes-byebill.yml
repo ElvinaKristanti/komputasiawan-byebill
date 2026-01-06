@@ -21,7 +21,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.2'
 
       - name: Check if composer.json exists
         id: check_files
@@ -56,9 +56,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_07C96E3665E34C0AA41EAD40FA9DD8ED }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_02BEC672326A4F91B36CC4ACB85AAC79 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ADBB34C16AF44A41BEF4999DF4ECEC70 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1132F1AA20C3469FAC41D84B5ABCB176 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_598A0D432E924A49BC67F7D5CB54FF64 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_85B68C6E7FE84028B70ACEE2A75F6DA3 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -67,5 +67,4 @@ jobs:
           app-name: 'Tubes-Byebill'
           slot-name: 'Production'
           package: .
-
           
